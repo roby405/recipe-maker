@@ -23,7 +23,7 @@ fn main() {
         println!("7.Exit!");
         let mut input = String::new();
 
-        // std::io::stdin().read_line(&mut input).expect("Nu am putut citi linia");
+        std::io::stdin().read_line(&mut input).expect("Nu am putut citi linia");
         // let mut option: i64 = input.trim().parse().expect("Introdu un număr valid");
 
         // match option {
