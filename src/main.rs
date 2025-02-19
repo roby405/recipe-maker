@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 struct Recipe {
     id: i32,
     name: String,
@@ -21,19 +23,19 @@ fn main() {
         println!("7.Exit!");
         let mut input = String::new();
 
-        std::io::stdin().read_line(&mut input).expect("Nu am putut citi linia");
-        let mut option: i64 = input.trim().parse().expect("Introdu un număr valid");
+        // std::io::stdin().read_line(&mut input).expect("Nu am putut citi linia");
+        // let mut option: i64 = input.trim().parse().expect("Introdu un număr valid");
 
-        match option {
-            1 => 
-            2 =>
-            3 =>
-            4 =>
-            5 =>
-            6 =>
-            7 => std::process::exit(0),
-            _ => std::process::exit(-1),
-        }
+        // match option {
+        //     1 => 
+        //     2 =>
+        //     3 =>
+        //     4 =>
+        //     5 =>
+        //     6 =>
+        //     7 => std::process::exit(0),
+        //     _ => std::process::exit(-1),
+        // }
 
     }
 
