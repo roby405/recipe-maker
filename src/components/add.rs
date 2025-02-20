@@ -1,6 +1,6 @@
 use crate::Recipe;
 
-fn add_recipe() {
+pub fn add_recipe() {
 
 }
 

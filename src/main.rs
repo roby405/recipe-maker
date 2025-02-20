@@ -1,5 +1,15 @@
+mod components {
+    pub mod add;
+    pub mod delete;
+    pub mod edit;
+    pub mod search;
+    pub mod view_all;
+    pub mod view_details;
+}
+
 use std::collections::HashMap;
 
+#[derive(Clone)]
 struct Recipe {
     id: i32,
     name: String,
