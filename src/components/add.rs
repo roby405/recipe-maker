@@ -19,7 +19,7 @@ pub fn add_recipe(recipes: &mut Vec<Recipe>, id: i32)
         let mut ing_qnt = String::new();
         io::stdin().read_line(&mut ing_name).expect("Error reading");
 
-        if ing_name.eq("-1") {
+        if ing_name.contains("-1") {
             break;
         }
         println!("Enter ingredient quantity:");
@@ -34,7 +34,7 @@ pub fn add_recipe(recipes: &mut Vec<Recipe>, id: i32)
         println!("Enter recipe instructions paragraph or -1 if you are done:");
         io::stdin().read_line(&mut paragr).expect("Error reading");
 
-        if paragr.eq("-1") {
+        if paragr.contains("-1") {
             break;
         }
         tmp.instructions.push(paragr);

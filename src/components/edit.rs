@@ -1,7 +1,7 @@
 use crate::Recipe;
 
 use std::io;
-pub fn edit_recipe(recipes: &mut Vec<Recipe>, recipe: &mut Recipe)
+pub fn edit_recipe(recipes: &mut Vec<Recipe>, recipe: &Recipe)
 {
     let mut tmp = Recipe::default();
 
@@ -17,22 +17,24 @@ pub fn edit_recipe(recipes: &mut Vec<Recipe>, recipe: &mut Recipe)
 
     println!("Enter new recipe name or 0 if you don't want to change the name:");
     io::stdin().read_line(&mut tmp.name).expect("Error reading");
-
+    tmp.name.pop();
     if tmp.name.eq("0") {
         tmp.name = recipe.name.clone();
     }
 
     println!("Enter recipe description or 0 if you don't want to change the description:");
     io::stdin().read_line(&mut tmp.description).expect("Error reading");
+    tmp.description.pop();
 
     if tmp.description.eq("0") {
         tmp.description = recipe.description.clone();
     }
 
-    println!("Enter new recipe ingredients or 0 if you don't want to change the ingredients");
+    println!("Enter 0 if you don't want to change the ingredients or anything else if you do");
 
     let mut input_tmp = String::new(); 
     io::stdin().read_line(&mut input_tmp).expect("Error reading");
+    input_tmp.pop();
 
     if input_tmp.eq("0") {
         tmp.ingredients = recipe.ingredients.clone();
@@ -42,6 +44,7 @@ pub fn edit_recipe(recipes: &mut Vec<Recipe>, recipe: &mut Recipe)
             let mut ing_name = String::new(); 
             let mut ing_qnt = String::new();
             io::stdin().read_line(&mut ing_name).expect("Error reading");
+            ing_name.pop();
 
             if ing_name.eq("-1") {
                 break;
@@ -52,10 +55,11 @@ pub fn edit_recipe(recipes: &mut Vec<Recipe>, recipe: &mut Recipe)
         };
     }
     
-    println!("Enter new recipe instructions or 0 if you don't want to change the recipe instructions");
+    println!("Enter 0 if you don't want to change the recipe instructions or anything else if you do");
     
     let mut inp_tmp = String::new(); 
     io::stdin().read_line(&mut inp_tmp).expect("Error reading");
+    inp_tmp.pop();
 
     if inp_tmp.eq("0") {
         tmp.instructions = recipe.instructions.clone();
@@ -64,6 +68,7 @@ pub fn edit_recipe(recipes: &mut Vec<Recipe>, recipe: &mut Recipe)
             let mut paragr = String::new();
             println!("Enter recipe instructions paragraph or -1 if you are done:");
             io::stdin().read_line(&mut paragr).expect("Error reading");
+            paragr.pop();
     
             if paragr.eq("-1") {
                 break;
@@ -72,4 +77,5 @@ pub fn edit_recipe(recipes: &mut Vec<Recipe>, recipe: &mut Recipe)
         };
     }
     recipes[index] = tmp;
+    println!("Recipe was modified succesfully!");
 }
